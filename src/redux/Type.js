@@ -1,1 +1,1 @@
-// export const type="type"
+export const type="type"

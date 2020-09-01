@@ -1,11 +1,12 @@
-// import React from 'react'
+import React from 'react'
+import Main from './Main'
 
-// function index() {
-//     return (
-//         <div>
-//             
-//         </div>
-//     )
-// }
+function index() {
+    return (
+        <div>
+            <Main />
+        </div>
+    )
+}
 
-// export default index
+export default index

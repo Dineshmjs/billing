@@ -1,8 +1,8 @@
-// import {type} from './Type'
+import {type} from './Type'
 
-// export const Action =(data) =>{
-//     return {
-//         type:type,
-//         data:data
-//     }
-// }
+export const Action =(data) =>{
+    return {
+        type:type,
+        data:data
+    }
+}
