@@ -6,8 +6,8 @@ import Index from './component'
 function App() {
   return (
     <div>
-      <Provider>
-        <Index store={store} />
+      <Provider store={store} >
+        <Index />
       </Provider>
     </div>
   );
