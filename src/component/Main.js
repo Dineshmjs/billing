@@ -1,22 +1,16 @@
-import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import { Action } from '../redux/Action'
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Action } from "../redux/Action";
 
 function Main() {
-    const data = useSelector(state=>state.typeData)
-    const dispatch = useDispatch()
+  const data = useSelector((state) => state.typeData);
+  const dispatch = useDispatch();
 
+  const submitButton = (data) => {
+    dispatch(Action(data));
+  };
 
-    const submitButton = (data) =>{
-      dispatch(Action(data))
-    }
-
-    return (
-        <div>
-            Main Page
-    <button onClick={()=>submitButton("New Data")}>{data}</button>
-        </div>
-    )
+  return <div></div>;
 }
 
-export default Main
+export default Main;
