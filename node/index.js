@@ -8,6 +8,10 @@ app.use(cors());
 app.use(morgan("dev")); 
 app.use(express.json())
 
+const product = require('./router/Product')
+
+app.use("/product",product)
+
 app.get("/",(req,res)=>{
     res.json("Root")
 })
@@ -21,7 +25,7 @@ mongoose.connect("mongodb://localhost:27017/",{ useNewUrlParser: true, useUnifie
     }
 })
 
-app.listen(4000,()=>{
-    console.log("Server run port 4000")
+app.listen(2000,()=>{
+    console.log("Server run port 2000")
 })
 
