@@ -1,8 +1,22 @@
-import {type} from './Type'
+import {sidemenu, newsales, viewproduct} from './Type'
 
-export const Action =(data) =>{
+export const sideMenu =(data) =>{
     return {
-        type:type,
+        type:sidemenu,
+        data:data
+    }
+}
+
+export const newSales =(data) =>{
+    return {
+        type:newsales,
+        data:data
+    }
+}
+
+export const viewProduct =(data) =>{
+    return {
+        type:viewproduct,
         data:data
     }
 }

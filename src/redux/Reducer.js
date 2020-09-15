@@ -1,18 +1,32 @@
-import {type} from './Type'
+import { sidemenu, newsales, viewproduct } from './Type'
 
 
 
 const inittialState = {
-    typeData:"Data"
+    sideMenu: "sales",
+    newSales: false,
+    viewProduct:false
+
 }
 
-const Reducer = (state = inittialState, action )=>{
-    switch(action.type){
-        case type:
+const Reducer = (state = inittialState, action) => {
+    switch (action.type) {
+        case sidemenu:
             return {
-                typeData:action.data     
+                ...state,
+                sideMenu: action.data
             }
-        default : return state 
+        case newsales:
+            return {
+                ...state,
+                newSales: action.data
+            }
+        case viewproduct:
+            return {
+                ...state,
+                viewProduct: action.data
+            }
+        default: return state
     }
 }
 

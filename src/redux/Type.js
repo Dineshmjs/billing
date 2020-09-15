@@ -1,1 +1,4 @@
-export const type="type"
+
+export const sidemenu="sidemenu"
+export const newsales = "newsales"
+export const viewproduct = "viewproduct"

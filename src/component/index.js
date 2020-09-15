@@ -8,11 +8,11 @@ function index() {
   return (
     <div className="w3-container">
       <Banner />
-      <div className="row">
-        <div className="col-2">
+      <div className="row p-0">
+        <div className="col-2 pr-0">
           <SideMenu />
         </div>
-        <div className="col-10">
+        <div className="col-10 pl-0">
           <Body />
         </div>
       </div>
