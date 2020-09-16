@@ -16,7 +16,7 @@ app.get("/",(req,res)=>{
     res.json("Root")
 })
 
-mongoose.connect("mongodb://localhost:27017/",{ useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
+mongoose.connect("mongodb://localhost:27017/bill",{ useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
     if(!err){
         console.log("Mongodb Connectced")
     }

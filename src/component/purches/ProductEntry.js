@@ -7,7 +7,7 @@ function ProductEntry() {
         product: "",
         mrp: "",
         qt: "",
-        amount: "",
+        rate: "",
         gst: "",
         hsnno: ""
     }
@@ -50,11 +50,11 @@ function ProductEntry() {
                             <ErrorMessage name="qt" />
                         </div>
                         <div className=" col-3 form-group">
-                            <Field name="amount" type="number" className="form-control" placeholder="Amount" />
-                            <ErrorMessage name="amount" />
+                            <Field name="rate" type="number" className="form-control" placeholder="Amount" />
+                            <ErrorMessage name="rate" />
                         </div>
                         <div className=" col-3 form-group">
-                            <Field name="gst" type="number" className="form-control" placeholder="GST" />
+                            <Field name="gst" type="number" className="form-control" placeholder="GST %" />
                             <ErrorMessage name="gst" />
                         </div>
                     </div>
