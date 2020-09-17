@@ -33,6 +33,21 @@ function ProductEntry() {
 
     }
 
+    const validationSchema = yup.object().shape({
+        products: yup.array()
+        .of(
+            yup.object().shape({
+                product: yup.string(),
+                mrp: yup.number(),
+                qt: yup.number(),
+                rate: yup.number(),
+                gst: yup.number(),
+                hsnno: yup.number()
+            })
+        .required("field Required")    
+        ) 
+    })
+
     // const validationSchema = yup.object({
     //     product: yup.string().required("Please Enter Product Name"),
     //     mrp: yup.number().required("Please Enter MRP"),
@@ -46,7 +61,7 @@ function ProductEntry() {
             <Formik
                 initialValues={initialValues}
                 onSubmit={submit}
-            // validationSchema={validationSchema}
+                validationSchema={validationSchema}
             >
                 <Form autoComplete="off">
                     <FieldArray name="products">
@@ -63,7 +78,7 @@ function ProductEntry() {
 
                                             products.map((products, index) => (
 
-                                                <div>
+                                                <div key={index}>
                                                     <div className="row">
                                                         <div className=" col-8 form-group">
                                                             <Field name={`products[${index}].product`} type="text" className="form-control" placeholder="Enter Product Details" />
@@ -113,7 +128,7 @@ function ProductEntry() {
 
 
                     <div className="w3-container w3-center">
-                        <button className="w3-button w3-deep-orange">Submit</button>
+                        <button type="submit" className="w3-button w3-deep-orange">Submit</button>
                     </div>
 
 
