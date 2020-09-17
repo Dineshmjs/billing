@@ -9,8 +9,16 @@ app.use(morgan("dev"));
 app.use(express.json())
 
 const product = require('./router/Product')
+const purches = require('./router/Purches')
+const sales = require('./router/Sales')
+const profit = require('./router/Profit')
+
 
 app.use("/product",product)
+app.use("/purches",purches)
+app.use("/sales",sales)
+app.use("/profit",profit)
+
 
 app.get("/",(req,res)=>{
     res.json("Root")

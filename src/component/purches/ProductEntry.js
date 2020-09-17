@@ -1,27 +1,40 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik'
 import { http } from '../../axios'
 import * as yup from 'yup'
+import SearchItem from './SearchItem'
 
 function ProductEntry() {
     const initialValues = {
-        products: [
-            {
-                product: "",
-                mrp: "",
-                qt: "",
-                rate: "",
-                gst: "",
-                hsnno: ""
-            }
-        ]
-
+        product: "",
+        hsnno: "",
+        mrp: "",
+        qt: "",
+        rate: "",
+        gst: ""
+       
     }
 
+    const [autoFill,setautoFill] = useState({})
+    const [status,setStatus] = useState(false)
+
+    const [products, setProducts] = useState([]) 
+
+    // useEffect=(() => {        
+    //    http.get("product")
+    //     .then(res=>{
+    //         console.log(res.data)
+    //         setProducts(res.data)
+    //     })
+    //     .catch(err=>{
+    //         console.log(err)
+    //     })
+    // }, [])
+
     const submit = (values, props) => {
-        http.post("product", values)
+        http.post("purches/tempItems", values)
             .then(res => {
-                console.log(res.data)
+                console.log(res.data)                
             })
             .catch(err => {
                 console.log(err)
@@ -31,106 +44,88 @@ function ProductEntry() {
 
         props.resetForm()
 
+    }  
+    
+    const searchItem = (product)=> {
+        console.log(product)
+        setStatus(false)
+        http.get("product/searchProduct",{params:{product:product}})
+        .then(res=>{
+            console.log(res.data)
+            setProducts(res.data)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 
-    const validationSchema = yup.object().shape({
-        products: yup.array()
-        .of(
-            yup.object().shape({
-                product: yup.string(),
-                mrp: yup.number(),
-                qt: yup.number(),
-                rate: yup.number(),
-                gst: yup.number(),
-                hsnno: yup.number()
-            })
-        .required("field Required")    
-        ) 
-    })
+    const statusAutoFill = (status,item) =>{       
+        if(status){
+            setautoFill(item)    
+            setStatus(status)         
+        }
+    }
 
-    // const validationSchema = yup.object({
-    //     product: yup.string().required("Please Enter Product Name"),
-    //     mrp: yup.number().required("Please Enter MRP"),
-    //     qt: yup.number().required("Please Enter Quantity"),
-    //     rate: yup.number().required("Please Enter Rate"),
-    //     gst: yup.number().required("Please Enter  GST"),
-    //     hsnno: yup.number().required("Please Enter  HSNNO")
-    // })
+    const validationSchema = yup.object({
+        product: yup.string().required("Please Enter Product Name"),
+        hsnno: yup.number().required("Please Enter  HSNNO"),
+        mrp: yup.number().required("Please Enter MRP"),
+        qt: yup.number().required("Please Enter Quantity"),
+        rate: yup.number().required("Please Enter Rate"),
+        gst: yup.number().required("Please Enter  GST")
+        
+    })
     return (
         <div className="w3-container mt-3">
             <Formik
-                initialValues={initialValues}
+                initialValues={autoFill || initialValues}
                 onSubmit={submit}
                 validationSchema={validationSchema}
+                enableReinitialize
             >
                 <Form autoComplete="off">
-                    <FieldArray name="products">
-                        {
-                            (props) => {
-                                // console.log(props)
-                                const { push, remove, form } = props
-                                const { values } = form
-                                const { products } = values
-
-                                return (
-                                    <div>
-                                        {
-
-                                            products.map((products, index) => (
-
-                                                <div key={index}>
-                                                    <div className="row">
-                                                        <div className=" col-8 form-group">
-                                                            <Field name={`products[${index}].product`} type="text" className="form-control" placeholder="Enter Product Details" />
-                                                            {/* <ErrorMessage name="product" /> */}
-                                                        </div>
-                                                        <div className=" col-4 form-group">
-                                                            <Field name={`products[${index}].hssno`} type="number" className="form-control" placeholder="HSNNO" />
-                                                            {/* <ErrorMessage name="hsnno" /> */}
-                                                        </div>
-                                                    </div>
-                                                    <div className="row">
-                                                        <div className=" col-2 form-group">
-                                                            <Field name={`products[${index}].mrp`} type="number" className="form-control" placeholder="MRP" />
-                                                            {/* <ErrorMessage name="mrp" /> */}
-                                                        </div>
-                                                        <div className=" col-3 form-group">
-                                                            <Field name={`products[${index}].qt`} type="number" className="form-control" placeholder="Quantity" />
-                                                            {/* <ErrorMessage name="qt" /> */}
-                                                        </div>
-                                                        <div className=" col-3 form-group">
-                                                            <Field name={`products[${index}].rate`} type="number" className="form-control" placeholder="Amount" />
-                                                            {/* <ErrorMessage name="rate" /> */}
-                                                        </div>
-                                                        <div className=" col-2 form-group">
-                                                            <Field name={`products[${index}].gst`} type="number" className="form-control" placeholder="GST %" />
-                                                            {/* <ErrorMessage name="gst" /> */}
-                                                        </div>
-                                                        {
-                                                            index > 0 &&
-                                                            <div className=" col-1 form-group">
-                                                                <button type="button" className="w3-button w3-circle w3-red" onClick={() => remove(index)}> - </button>
-                                                            </div>
-                                                        }
-
-                                                        <div className=" col-1 form-group">
-                                                            <button type="button" className="w3-button w3-circle w3-green" onClick={() => push('')}> + </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                )
+                    <div className="row">                       
+                        <div className=" col-8 form-group">
+                            <Field name="product">
+                                {
+                                    (props)=>{{                                        
+                                        return <input type="text" className="form-control" placeholder="Enter Product Details" onChange={(e)=>searchItem(e.target.value)} value= {props.values} />
+                                    }}
+                                }
+                            </Field>
+                            <ErrorMessage name="product" />
+                            {
+                                !status && <SearchItem items={products} statusAutoFill={statusAutoFill} />
                             }
-                        }
-                    </FieldArray>
-
-
-                    <div className="w3-container w3-center">
-                        <button type="submit" className="w3-button w3-deep-orange">Submit</button>
+                            
+                        </div>
+                        <div className=" col-4 form-group">
+                            <Field name="hsnno" type="number" className="form-control" placeholder="HSNNO" />
+                            <ErrorMessage name="hsnno" />
+                        </div>
                     </div>
-
+                    <div className="row">
+                        <div className=" col-3 form-group">
+                            <Field name="mrp" type="number" className="form-control" placeholder="MRP" />
+                            <ErrorMessage name="mrp" />
+                        </div>
+                        <div className=" col-3 form-group">
+                            <Field name="qt" type="number" className="form-control" placeholder="Quantity" />
+                            <ErrorMessage name="qt" />
+                        </div>
+                        <div className=" col-3 form-group">
+                            <Field name="rate" type="number" className="form-control" placeholder="Amount" />
+                            <ErrorMessage name="rate" />
+                        </div>
+                        <div className=" col-3 form-group">
+                            <Field name="gst" type="number" className="form-control" placeholder="GST" />
+                            <ErrorMessage name="gst" />
+                        </div>
+                    </div>
+                    <div className="w3-container w3-center">
+                        <button type="reset" className="w3-button w3-deep-orange mr-3" onClick={()=>setautoFill(false,initialValues)}>Reset</button>
+                        <button type="submit" className="w3-button w3-deep-orange">Add</button>
+                    </div>
 
                 </Form>
             </Formik>
