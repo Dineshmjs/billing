@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik'
+import React, {useState} from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { http } from '../../axios'
 import * as yup from 'yup'
 import SearchItem from './SearchItem'
@@ -88,9 +88,7 @@ function ProductEntry() {
                         <div className=" col-8 form-group">
                             <Field name="product">
                                 {
-                                    (props)=>{{                                        
-                                        return <input type="text" className="form-control" placeholder="Enter Product Details" onChange={(e)=>searchItem(e.target.value)} value= {props.values} />
-                                    }}
+                                    (props)=> <input type="text" className="form-control" placeholder="Enter Product Details" onChange={(e)=>searchItem(e.target.value)} value= {props.values} />                                    
                                 }
                             </Field>
                             <ErrorMessage name="product" />

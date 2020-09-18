@@ -3,16 +3,21 @@ import React from "react";
 import Body from "./Body";
 import SideMenu from "./SideMenu";
 import Banner from "./Banner";
+import './index.css'
+
 
 function index() {
   return (
-    <div className="w3-container">
-      <Banner />
-      <div className="row p-0">
-        <div className="col-2 pr-0">
+    <div className="main">
+      <div className="banner">
+        <Banner />
+      </div>
+
+      <div className="body">
+        <div className="sidemenu">
           <SideMenu />
         </div>
-        <div className="col-10 pl-0">
+        <div className="mainbody">
           <Body />
         </div>
       </div>

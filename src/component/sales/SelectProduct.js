@@ -1,11 +1,23 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import {viewProduct} from '../../redux/Action'
 import {useDispatch} from 'react-redux'
+import {http} from '../../axios'
 
 function SelectProduct() {
 
     const dispatch = useDispatch() 
+    const [products,setProducts] = useState([])
+
+    useEffect(()=>{
+        http.get("product")
+        .then(res=>{
+            setProducts(res.data)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    },[])
 
     const initialValues = {
         product:"",
@@ -29,6 +41,10 @@ function SelectProduct() {
                     <div className="col-4">
                         <Field as="select" name="product" className="form-control" >
                             <option>Select Product</option>
+                            {
+                                products.map(doc=><option>{doc.product}</option>)
+                            }
+
                         </Field>
                         <ErrorMessage name="product" />
                     </div>

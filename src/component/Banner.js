@@ -1,14 +1,11 @@
 import React from "react";
+import './index.css'
 
 
-function Banner() {
-    const style = {
-        width: "100%",
-        height: "100px"
-    }
+function Banner() {    
     return(
-        <div className="w3-container w3-teal" style={style}>
-            <h2 className="w3-center" style={{paddingTop:"20px"}}>Billing Software</h2>
+        <div className="banner w3-teal">
+            <h2>Billing Software</h2>
         </div>
     );
 }

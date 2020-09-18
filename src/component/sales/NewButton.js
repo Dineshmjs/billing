@@ -6,7 +6,7 @@ function NewButton() {
     const dispatch = useDispatch()
     return (
         <div className="w3-container">
-            <button className="w3-right btn btn-primary mr-3 mt-2" onClick={()=>dispatch(newSales(true))}> + New Sales</button>
+            <button className=" w3-right btn btn-primary mr-3 mt-2" onClick={()=>dispatch(newSales(true))}> + New Sales</button>
         </div>
     )
 }

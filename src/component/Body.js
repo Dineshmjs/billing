@@ -9,7 +9,7 @@ function Body() {
   const sidemenu = useSelector(state => state.sideMenu)
   
   return (
-    <div className="container">
+    <div>
      {
        sidemenu === "sales" && <Sales />
      }

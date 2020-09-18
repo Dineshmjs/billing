@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+}
+.banner{
+    display:flex;
+    flex:1;    
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+}
+
+.body{
+    display: flex;
+}
+.sidemenu{    
+    flex:0.2;
+}
+.mainbody{    
+    flex: 0.8;
+}
+.sidemenu_container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.card_padding{   
+    align-items: center;
+    width:90%;
+    height:100px;     
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.card_padding:hover{
+    background-color: darkgrey;
+}
+.card_padding:hover > h5{
+    color: white;
+}
+
