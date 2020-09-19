@@ -1,11 +1,12 @@
-import { sidemenu, newsales, viewproduct } from './Type'
+import { sidemenu, newsales, viewproduct,reload } from './Type'
 
 
 
 const inittialState = {
     sideMenu: "sales",
     newSales: false,
-    viewProduct:false
+    viewProduct: false,
+    reload: 0
 
 }
 
@@ -25,6 +26,11 @@ const Reducer = (state = inittialState, action) => {
             return {
                 ...state,
                 viewProduct: action.data
+            }
+        case reload:
+            return {
+                ...state,
+                reload: state.reload + 1
             }
         default: return state
     }

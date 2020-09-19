@@ -1,4 +1,4 @@
-import {sidemenu, newsales, viewproduct} from './Type'
+import {sidemenu, newsales, viewproduct, reload} from './Type'
 
 export const sideMenu =(data) =>{
     return {
@@ -20,3 +20,10 @@ export const viewProduct =(data) =>{
         data:data
     }
 }
+
+export const Reload =() =>{
+    return {
+        type:reload       
+    }
+}
+

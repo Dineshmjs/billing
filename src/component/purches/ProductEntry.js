@@ -3,17 +3,22 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { http } from '../../axios'
 import * as yup from 'yup'
 import SearchItem from './SearchItem'
+import {useDispatch} from 'react-redux'
+import {Reload} from '../../redux/Action'
 
 function ProductEntry() {
+
     const initialValues = {
         product: "",
         hsnno: "",
         mrp: "",
         qt: "",
         rate: "",
-        gst: ""
+        gst: ""       
        
     }
+
+    const dispatch = useDispatch()
 
     const [autoFill,setautoFill] = useState({})
     const [status,setStatus] = useState(false)
@@ -32,6 +37,7 @@ function ProductEntry() {
     // }, [])
 
     const submit = (values, props) => {
+        console.log("values",values)
         http.post("purches/tempItems", values)
             .then(res => {
                 console.log(res.data)                
@@ -78,18 +84,35 @@ function ProductEntry() {
     return (
         <div className="w3-container mt-3">
             <Formik
-                initialValues={autoFill || initialValues}
+                initialValues={initialValues}
                 onSubmit={submit}
                 validationSchema={validationSchema}
                 enableReinitialize
             >
                 <Form autoComplete="off">
+                   
                     <div className="row">                       
                         <div className=" col-8 form-group">
-                            <Field name="product">
+                            <Field name="product" type="text">
                                 {
-                                    (props)=> <input type="text" className="form-control" placeholder="Enter Product Details" onChange={(e)=>searchItem(e.target.value)} value= {props.values} />                                    
+                                    (props)=> {
+                                        console.log("props",props)  
+                                        const {field} = props
+                                        const {value} = field
+                                        console.log(value)
+                                                                             
+                                        return(
+                                            <input                                               
+                                                id="product"                                                                                             
+                                                className="form-control" 
+                                                placeholder="Enter Product Details" 
+                                                {...field}
+                                                onKeyPress={()=>searchItem(value)}                                                  
+                                            /> 
+                                        )                                       
+                                    }
                                 }
+
                             </Field>
                             <ErrorMessage name="product" />
                             {
@@ -122,7 +145,7 @@ function ProductEntry() {
                     </div>
                     <div className="w3-container w3-center">
                         <button type="reset" className="w3-button w3-deep-orange mr-3" onClick={()=>setautoFill(false,initialValues)}>Reset</button>
-                        <button type="submit" className="w3-button w3-deep-orange">Add</button>
+                        <button type="submit" className="w3-button w3-deep-orange" onClick={dispatch(Reload())}>Add</button>
                     </div>
 
                 </Form>
