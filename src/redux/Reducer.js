@@ -6,7 +6,7 @@ const inittialState = {
     sideMenu: "sales",
     newSales: false,
     viewProduct: false,
-    reload: 0
+    reload: 1
 
 }
 
@@ -30,7 +30,7 @@ const Reducer = (state = inittialState, action) => {
         case reload:
             return {
                 ...state,
-                reload: state.reload + 1
+                reload: state.reload * 2 
             }
         default: return state
     }
