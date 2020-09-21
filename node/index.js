@@ -12,12 +12,14 @@ const product = require('./router/Product')
 const purches = require('./router/Purches')
 const sales = require('./router/Sales')
 const profit = require('./router/Profit')
+const address = require('./router/Address')
 
 
 app.use("/product",product)
 app.use("/purches",purches)
 app.use("/sales",sales)
 app.use("/profit",profit)
+app.use("/address",address)
 
 
 app.get("/",(req,res)=>{

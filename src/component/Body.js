@@ -4,6 +4,7 @@ import Sales from './sales'
 import Purches from './purches'
 import Stock from './stock'
 import Profit from './profit'
+import Address from './address'
 
 function Body() {
   const sidemenu = useSelector(state => state.sideMenu)
@@ -21,6 +22,9 @@ function Body() {
      }
      {
        sidemenu === "profit" && <Profit />
+     }  
+     {
+       sidemenu === "address" && <Address />
      }     
     </div>
   );
