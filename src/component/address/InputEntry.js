@@ -6,7 +6,6 @@ import { http } from '../../axios'
 
 function InputEntry({ Reload, updateValues, Update, update, insert }) {
 
-
     const initialValues = {
         name: "",
         gstin: "",
@@ -18,6 +17,8 @@ function InputEntry({ Reload, updateValues, Update, update, insert }) {
         country: "",
         pincode: ""
     }
+
+    
 
 
 
@@ -34,6 +35,10 @@ function InputEntry({ Reload, updateValues, Update, update, insert }) {
             })
         submitProps.resetForm()
     }
+
+    // const ResetForm = ()=>{
+    //     setauoFill(initialValues)
+    // }
 
     
     const validationSchema = yup.object({
@@ -103,7 +108,7 @@ function InputEntry({ Reload, updateValues, Update, update, insert }) {
                                 </div>
                             </div>
                             <div className="form-group w3-center">
-                                {/* <button className="w3-button w3-indigo" type="reset" onClick={()=>formikProps.resetForm()}>Reset</button> */}
+                                <button className="w3-button w3-indigo mr-3" type="reset" onClick={()=>Update(initialValues,false)}>Reset</button>
                                 {
                                     insert && <button className="w3-button w3-purple" type="submit">Submit</button>
                                 }
