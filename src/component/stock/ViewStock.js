@@ -22,7 +22,7 @@ function ViewStock({ reload, Reload,Update }) {
         if (qt === 0) {
             http.delete("product", { params: { id: id } })
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if(res.data.ok === 1){
                         alert("Item Deleted Successfully")
                     }
