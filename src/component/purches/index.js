@@ -11,9 +11,10 @@ function Purcches() {
     }
     return (
         <div>
-            <NameEntry />
             <ProductEntry reloadMethod = {Reload} />
             <ViewItem reloadAction = {reloadView}  />
+            <NameEntry />
+
         </div>
     )
 }
