@@ -1,3 +1,6 @@
+*{
+    border:0px;
+}
 .viewItems{
     display: flex;
     align-items: center;
@@ -18,24 +21,34 @@
     display: flex;
     flex:0.6;
     flex-direction: column;
+    border-right:1px solid blue;
+    border-bottom:1px solid green;
+
+}
+
+.fromaddress{
+    border-bottom:1px solid teal;
+    margin-left: 2px;
+}
+.fromaddress > p {
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+.toaddress{
+    
+}
+.toaddress > p,h6{
+    margin-bottom: 0px;
+    margin-left: 10px;
 }
 
 .invoice{
     display: flex;
     flex:0.4;
     flex-direction: column;
+    border-bottom:1px solid red;
 }
 
 .hr{
     border:1px solid black;
-}
-
-.buttons{
-    display: flex;
-    justify-content: center;
-    margin-top:10px;        
-}
-
-.buttons > div{
-    padding:1%;
 }

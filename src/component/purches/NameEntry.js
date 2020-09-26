@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { http } from '../../axios'
 
 
-function NameEntry() {
+function NameEntry({Address}) {
 
     const [data, setData] = useState([])
     const [viewData, setViewData] = useState()
@@ -16,20 +16,20 @@ function NameEntry() {
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, [])    
 
     
 
-    const FindAddress = (e) => {
-        // console.log("array", data[e])
-        setViewData(data[e])
+    const ChooseName = (e) =>{
+        setViewData(data[e]) 
+        Address(data[e])
     }
     
 
     return (
         <div className="container mt-3">            
             <form className="form">
-                <select name="address" onChange={(e) => { FindAddress(e.target.value) }} className="form-control">
+                <select name="address" onChange={(e) => { ChooseName(e.target.value) }} className="form-control">
                     <option value="" className="w3-white">Select Company Name</option>
                     {
                         data.map((data, index) => {

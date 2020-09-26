@@ -5,7 +5,6 @@ import './index.css'
 
 function SideMenu() {
    const dispatch = useDispatch()
-
    //  const menuWidth = {
    //      width:"100%",
    //      height:"100px"        
@@ -22,7 +21,7 @@ function SideMenu() {
             <h5 className="" >Purches</h5>
          </div>
          <div  className="w3-card card_padding" onClick={()=>dispatch(sideMenu("stock"))} >
-            <h5 className="" >Stock</h5>
+            <h5 className="" >Stock</h5>                                                     
          </div>
          <div  className="w3-card card_padding" onClick={()=>dispatch(sideMenu("profit"))} >
             <h5 className="" >Profit</h5>

@@ -3,13 +3,13 @@ import { http } from '../../axios'
 import './index.css'
 import DeleteIcon from '@material-ui/icons/Delete'
 
-function ViewItem({ reloadAction }) {
-    const [id, setId] = useState()
-    console.log("reloadAction", reloadAction)
+function ViewItem({ reload,Reload }) {
+    
+    
     const [viewdata, setviewData] = useState([])
 
     useEffect(() => {
-        console.log("getmethod Triger")
+       
         http.get("purches/tempItems")
             .then(res => {
                 // console.log(res.data)
@@ -18,14 +18,14 @@ function ViewItem({ reloadAction }) {
             .catch(err => {
                 // console.log(err)
             })
-    }, [id, reloadAction])
+    }, [reload])
 
     const Delete = (id) => {
         http.delete("purches/tempitems", { params: { id: id } })
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 if (res.data.ok === 1) {
-                    setId(id)
+                    Reload(id)
                     alert("Item Removed Successfully")
                 }
                 else {
