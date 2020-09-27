@@ -25,7 +25,7 @@ function ViewItem({ reload,Reload }) {
             .then(res => {
                 // console.log(res.data)
                 if (res.data.ok === 1) {
-                    Reload(id)
+                    Reload(res.data)
                     alert("Item Removed Successfully")
                 }
                 else {

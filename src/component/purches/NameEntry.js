@@ -5,7 +5,7 @@ import { http } from '../../axios'
 function NameEntry({Address}) {
 
     const [data, setData] = useState([])
-    const [viewData, setViewData] = useState()
+    // const [viewData, setViewData] = useState()
 
     useEffect(() => {
         http.get("address")
@@ -21,7 +21,7 @@ function NameEntry({Address}) {
     
 
     const ChooseName = (e) =>{
-        setViewData(data[e]) 
+        // setViewData(data[e]) 
         Address(data[e])
     }
     
@@ -41,7 +41,7 @@ function NameEntry({Address}) {
                 </select>
             </form>
 
-            {
+            {/* {
                 viewData && (
                     <div className="container">
                         <table className="w3-table-all">
@@ -65,7 +65,7 @@ function NameEntry({Address}) {
                             </tbody>
                             
                         </table>
-                    </div>)}
+                    </div>)} */}
         </div>
     )
 }

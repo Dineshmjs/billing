@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import ProductEntry from './ProductEntry'
 import ViewItem from './ViewItem'
 import NameEntry from './NameEntry'
@@ -16,12 +16,12 @@ function Purcches() {
     const [reloadView, setreloadView] = useState(1)
     const [selectData, setselectData] = useState()
 
-    
+
     const [address, setAddress] = useState()
     const [payment, setPayment] = useState()
 
-    console.log("payment",payment)
-    console.log("address",address)
+    console.log("payment", payment)
+    console.log("address", address)
 
 
     const [buttonAction, setbuttonAction] = useState("print")
@@ -32,7 +32,7 @@ function Purcches() {
         setreloadView(id)
     }
 
-    const ButtonAction =(action) =>{
+    const ButtonAction = (action) => {
         setbuttonAction(action)
     }
 
@@ -48,17 +48,17 @@ function Purcches() {
 
     }
 
-    
-
-    
-
-    const Address = (address) => {                
-        setAddress(address)        
+    const Address = (address) => {
+        setAddress(address)
     }
 
-    const Payment = (payment) =>{        
+    const Payment = (payment) => {
         setPayment(payment)
     }
+
+    const componentRef = useRef()
+
+    
 
 
     return (
@@ -68,17 +68,14 @@ function Purcches() {
             <ViewItem reload={reloadView} Reload={Reload} />
             <NameEntry Address={Address} />
             <SelectPayment Payment={Payment} />
+            <ViewPrint ref={componentRef} reload={reloadView} address={address} payment={payment} />
+            
 
             <div className="buttons">
                 <CancelButton ButtonAction={ButtonAction} />
                 <SaveButton ButtonAction={ButtonAction} />
-                <PrintButton ButtonAction={ButtonAction} />
+                <PrintButton address={address} payment={payment} componentRef={componentRef}  />
             </div>
-
-
-            {
-                buttonAction === "print" && <ViewPrint reload={reloadView} address={address} payment={payment} />
-            }
 
         </div>
     )

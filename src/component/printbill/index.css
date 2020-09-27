@@ -21,13 +21,13 @@
     display: flex;
     flex:0.6;
     flex-direction: column;
-    border-right:1px solid blue;
-    border-bottom:1px solid green;
+    border-right:1px solid black;
+    border-bottom:1px solid black;
 
 }
 
 .fromaddress{
-    border-bottom:1px solid teal;
+    border-bottom:1px solid black;
     margin-left: 2px;
 }
 .fromaddress > p {
@@ -46,7 +46,7 @@
     display: flex;
     flex:0.4;
     flex-direction: column;
-    border-bottom:1px solid red;
+    border-bottom:1px solid black;
 }
 
 .hr{

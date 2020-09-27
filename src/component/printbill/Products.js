@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { http } from '../../axios'
 
-function Products({reload}) {
+function Products({ reload }) {
     const [data, setData] = useState([])
     // console.log(products)
 
@@ -17,40 +17,67 @@ function Products({reload}) {
             })
     }, [reload])
 
+    var total = 0, gst = 0, grandTotal = 0;
+
     return (
         <div>
             <table className="table">
-            <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>HSNNO</th>
-                            <th>MRP</th>
-                            <th>Quantity</th>
-                            <th>Rate</th>
-                            <th>total</th>
-                            <th>GST</th>
-                            <th>total</th>                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            data.map(data => {
-                                // console.log("data", data)
-                                return (
-                                    <tr key={data._id}>
-                                        <td>{data.product}</td>
-                                        <td>{data.hsnno}</td>
-                                        <td>{data.mrp}</td>
-                                        <td>{data.qt}</td>
-                                        <td>{data.rate}</td>
-                                        <td>{data.total}</td>
-                                        <td>{data.gst}%</td>
-                                        <td>{data.grandTotal}</td>                                        
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
+                <thead>
+                    <tr>
+                        <td>S.No</td>
+                        <th>Product</th>
+                        <th>HSNNO</th>
+                        <th>MRP</th>
+                        <th>Quantity</th>
+                        <th>Rate</th>
+                        <th>Taxable Amount</th>
+                        <th>GST</th>
+                        <th>GST Amount</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        data.map((data, index) => {
+                            // console.log("data", data)
+                            total += data.total
+                            gst += data.gstTotal
+                            grandTotal += data.grandTotal
+
+
+
+                            return (
+                                <tr key={data._id}>
+                                    <td>{index + 1}</td>
+                                    <td>{data.product}</td>
+                                    <td>{data.hsnno}</td>
+                                    <td>{data.mrp}</td>
+                                    <td>{data.qt}</td>
+                                    <td>{data.rate}</td>
+                                    <td>{data.total}</td>
+                                    <td>{data.gst}%</td>
+                                    <td>{data.gstTotal}</td>
+                                    <td>{data.grandTotal}</td>
+                                </tr>
+                            )
+                        })
+                    }
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{total}</td>
+                        <td></td>
+                        <td>{gst}</td>
+                        <td>{grandTotal}</td>
+                    </tr>
+
+
+                </tbody>
             </table>
         </div>
     )
