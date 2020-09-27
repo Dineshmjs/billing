@@ -2,7 +2,7 @@ import React from 'react'
 import { useReactToPrint } from 'react-to-print'
 import { http } from '../../axios'
 
-function PrintButton({address,payment,componentRef,invoiceNo,invoiceDate}) {
+function PrintButton({address,payment,componentRef,invoiceNo,invoiceDate,Reload,ClosePurches}) {
     console.log("componentRef",componentRef)
     const print = useReactToPrint({
         content: ()=>componentRef.current
@@ -22,10 +22,12 @@ function PrintButton({address,payment,componentRef,invoiceNo,invoiceDate}) {
         http.post("purches",values)
         .then(res=>{
             console.log(res.data)
-            if(res.data){
-                alert("PrintBill")
+            if(res.data){                
+                Reload(res.data)
                 console.log("res data",res.data)
                 print()
+                ClosePurches()
+                
             }
             else{
                 alert("Something Wrong")
