@@ -39,3 +39,14 @@
 .buttons > div{
     padding:1%;
 }
+
+.invoice-input{
+    display: flex;    
+    flex-direction: row;
+    justify-content: space-between;    
+}
+
+.invoice-input > input {
+    width:49%
+}
+

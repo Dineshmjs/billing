@@ -55,7 +55,7 @@ export class ViewPrint extends Component {
             <div>
                 <p className="w3-center">TAX INVOICE</p>
 
-                <div className="container viewprint">
+                <div className="viewprint">
                     <div className="top">
                         <div className="address">
                             <FromAddress />
@@ -63,7 +63,7 @@ export class ViewPrint extends Component {
                         </div>
 
                         <div className="invoice">
-                            <Invoice payment={this.props.payment} />
+                            <Invoice payment={this.props.payment} invoiceNo={this.props.invoiceNo} invoiceDate={this.props.invoiceDate} />
                         </div>
                     </div>
 

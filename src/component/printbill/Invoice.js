@@ -1,17 +1,17 @@
 import React from 'react'
 
-function Invoice({invoiceno,payment}) {
+function Invoice({invoiceNo,invoiceDate,payment}) {
     return (
         <div>
             <table className="w3-table">
                 <tbody>
                     <tr>
                         <td>Invoice No : </td>
-                        <td><b>LSB/07057/20-21</b></td>
+                        <td><b>{invoiceNo}</b></td>
                     </tr>
                     <tr>
                         <td>Date : </td>
-                        <td><b>22-Sep-2020</b></td>
+                         <td><b>{invoiceDate}</b></td>
                     </tr>
                     <tr>
                         <td>Mode of PAyment : </td>
