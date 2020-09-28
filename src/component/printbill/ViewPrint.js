@@ -52,8 +52,8 @@ import React, { Component } from 'react'
 export class ViewPrint extends Component {    
     render() {
         return (
-            <div>
-                <p className="w3-center">TAX INVOICE</p>
+            <div className="mt-2">
+                <p className="w3-center mt-3">TAX INVOICE</p>
 
                 <div className="viewprint">
                     <div className="top">

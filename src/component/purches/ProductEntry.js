@@ -75,8 +75,8 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
                         
                     </div>
                     <div className="w3-container w3-center">
-                        <button type="reset" className="w3-button w3-deep-orange mr-3" onClick={()=>SelectData(initialValues)}>Reset</button>
-                        <button type="submit" className="w3-button w3-deep-orange">Add</button>
+                        <button type="reset" className="btn w3-deep-orange mr-3" onClick={()=>SelectData(initialValues)}>Reset</button>
+                        <button type="submit" className="btn w3-deep-orange">Add</button>
                     </div>
                 </Form>
             </Formik>

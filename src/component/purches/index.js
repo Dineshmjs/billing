@@ -9,12 +9,10 @@ import ViewPurches from './ViewPurches'
 
 import CloseIcon from '@material-ui/icons/Close'
 
-
-import CancelButton from './CancelButton'
-import SaveButton from './SaveButton'
 import PrintButton from './PrintButton'
 
 import ViewPrint from '../printbill/ViewPrint'
+import { http } from '../../axios'
 
 function Purcches() {
     const [reloadView, setreloadView] = useState(1)
@@ -27,6 +25,8 @@ function Purcches() {
     const [invoiceDate, setinvoiceDate] = useState()
 
     const [newPurches, setnewPurches] = useState(false)
+
+    
 
 
     console.log("payment", payment)
@@ -61,6 +61,7 @@ function Purcches() {
 
     const Payment = (payment) => {
         setPayment(payment)
+        
     }
 
     const componentRef = useRef()
@@ -81,6 +82,24 @@ function Purcches() {
         setnewPurches(false)
     }
 
+    const CancelBill =()=>{
+        setAddress()
+        setPayment()
+        setinvoiceNo()
+        setinvoiceDate()
+        setnewPurches(false)
+
+        http.delete("purches/tempItemsAll")
+            .then(res=>{
+                setreloadView(res.data)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    }
+
+    
+
 
 
 
@@ -89,7 +108,7 @@ function Purcches() {
     return (
         <div>
             <div className="w3-container mt-3">
-                { !newPurches && <button onClick={NewPurches} className="w3-button w3-green w3-right"> +New Purches</button>}
+                { !newPurches && <button onClick={NewPurches} className="btn w3-green w3-right"> +New Purches</button>}
             </div>
 
 
@@ -97,7 +116,7 @@ function Purcches() {
                 newPurches && (
                     <div>
                         <div className="container mt-3">
-                            <button onClick={ClosePurches} className="w3-button w3-red w3-right"> <CloseIcon /> Close</button>
+                            <button onClick={ClosePurches} className="btn w3-red w3-right"> <CloseIcon /> Close</button>
                         </div>
                         <div className="w3-container mt-1">
                             <SelectProduct SelectData={SelectData} />
@@ -113,10 +132,14 @@ function Purcches() {
 
 
                             <div className="buttons">
-                                <CancelButton />
-                                <SaveButton />
+                                
+                                <div>
+                                    <button onClick={CancelBill} className="btn w3-red">Cancel Bill</button>
+                                </div>     
+
                                 <PrintButton address={address} payment={payment} componentRef={componentRef} invoiceDate={invoiceDate} invoiceNo={invoiceNo} Reload={Reload} ClosePurches={ClosePurches} />
                             </div>
+
                         </div>
                     </div>
                 )

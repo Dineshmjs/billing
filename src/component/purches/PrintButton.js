@@ -26,8 +26,7 @@ function PrintButton({address,payment,componentRef,invoiceNo,invoiceDate,Reload,
                 Reload(res.data)
                 console.log("res data",res.data)
                 print()
-                ClosePurches()
-                
+                ClosePurches()                
             }
             else{
                 alert("Something Wrong")
@@ -38,7 +37,7 @@ function PrintButton({address,payment,componentRef,invoiceNo,invoiceDate,Reload,
 
     return (
         <div>
-            <button onClick={PrintBill} className="w3-button w3-yellow">Print Bill</button>
+            <button onClick={PrintBill} className="btn w3-yellow">Print Bill</button>
         </div>
     )
 }
