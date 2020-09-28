@@ -15,16 +15,18 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
     }
 
     const submit = (values, submitProps) => {
+        alert("submit")
         // console.log("values", values)
         http.post("product", values)
             .then(res => {
                 // console.log(res.data)
-                Reload(res.data._id)
+                Reload(res.data)
+                Update(initialValues,false)
             })
             .catch(err => {
                 console.log(err)
             })
-        submitProps.resetForm()
+        
     }
 
     const validationSchema = yup.object({

@@ -26,7 +26,7 @@ function ViewStock({ reload, Reload,Update }) {
                     if(res.data.ok === 1){
                         alert("Item Deleted Successfully")
                     }
-                    Reload(res.data._id)
+                    Reload(res.data)
                 })
                 .catch(err => {
                     console.log(err)

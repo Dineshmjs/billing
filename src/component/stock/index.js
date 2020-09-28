@@ -11,7 +11,7 @@ function Stock() {
     const [formValues, setformValues] = useState({})
 
     const Reload = (id) => {
-        // console.log(id)
+        console.log(id)
         setReload(id)
     }
 
