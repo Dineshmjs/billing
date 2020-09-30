@@ -2,8 +2,7 @@
 // import { toWords } from './NumberToWord';
 
 import './index.css'
-import FromAddress from './FromAddress'
-import ToAddress from './ToAddress'
+import Address from './Address'
 import Invoice from './Invoice'
 import Products from './Products'
 
@@ -49,6 +48,7 @@ import Products from './Products'
 
 import React, { Component } from 'react'
 
+
 export class ViewPrint extends Component {    
     render() {
         return (
@@ -58,8 +58,9 @@ export class ViewPrint extends Component {
                 <div className="viewprint">
                     <div className="top">
                         <div className="address">
-                            <FromAddress />
-                            <ToAddress address={this.props.address} />
+                            <Address address={this.props.fromaddress} />
+                            <div className="mt-2">Buyer</div>
+                            <Address address={this.props.toaddress} />
                         </div>
 
                         <div className="invoice">

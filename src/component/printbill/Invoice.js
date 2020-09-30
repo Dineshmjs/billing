@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function Invoice({invoiceNo,invoiceDate,payment}) {
     return (
         <div>

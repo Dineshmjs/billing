@@ -13,6 +13,7 @@ import PrintButton from './PrintButton'
 
 import ViewPrint from '../printbill/ViewPrint'
 import { http } from '../../axios'
+import { NativeAddress } from '../../default/NativeAddress'
 
 function Purcches() {
     const [reloadView, setreloadView] = useState(1)
@@ -128,7 +129,7 @@ function Purcches() {
 
                             <InvoiceDetails InvoiceDate={InvoiceDate} InvoiceNo={InvoiceNo} />
 
-                            <ViewPrint ref={componentRef} reload={reloadView} address={address} payment={payment} invoiceDate={invoiceDate} invoiceNo={invoiceNo} />
+                            <ViewPrint fromaddress={address} toaddress={NativeAddress} ref={componentRef} reload={reloadView} address={address} payment={payment} invoiceDate={invoiceDate} invoiceNo={invoiceNo} />
 
 
                             <div className="buttons">
@@ -137,7 +138,7 @@ function Purcches() {
                                     <button onClick={CancelBill} className="btn w3-red">Cancel Bill</button>
                                 </div>     
 
-                                <PrintButton address={address} payment={payment} componentRef={componentRef} invoiceDate={invoiceDate} invoiceNo={invoiceNo} Reload={Reload} ClosePurches={ClosePurches} />
+                                <PrintButton address={address}  payment={payment} componentRef={componentRef} invoiceDate={invoiceDate} invoiceNo={invoiceNo} Reload={Reload} ClosePurches={ClosePurches} />
                             </div>
 
                         </div>

@@ -2,24 +2,26 @@ import React,{useState,useEffect} from 'react'
 import { http } from '../../axios'
 import {MyDate} from '../../mycode/MyDate'
 
-function ViewPurches({reload}) {
+function ViewSales({reload,Invoice}) {
 
-    const [purches,setPurches] = useState([])
+    const [sales,setSales] = useState([])    
 
     useEffect(()=>{
-        http.get("purches")
+        http.get("sales")
             .then(res=>{
-                setPurches(res.data)
+                setSales(res.data)  
+                Invoice(res.data.length)   
+                                                         
             })
             .catch(err=>{
                 console.log(err)
             })
-    },[reload])
+    },[reload,Invoice])
 
     return (
         <div className="container mt-3">
             {
-                purches.map((data,index)=>{
+                sales.map((data,index)=>{
                     return(
                         <div key={index} className="w3-card mt-3">
                             <p className="w3-center w3-indigo pt-3 ">{data.address.name}</p>
@@ -37,4 +39,4 @@ function ViewPurches({reload}) {
     )
 }
 
-export default ViewPurches
+export default ViewSales
