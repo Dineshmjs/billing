@@ -5,6 +5,7 @@ import './index.css'
 import Address from './Address'
 import Invoice from './Invoice'
 import Products from './Products'
+import Items from './Items'
 
 // function ViewPrint({ address, payment, reload }) {
 
@@ -69,7 +70,10 @@ export class ViewPrint extends Component {
                     </div>
 
                     <div className="products">
-                        <Products reload={this.props.reload} />
+                        {
+                            this.props.items ? (<Items items = {this.props.items} />):(<Products reload={this.props.reload} />)
+                        }
+                        
                     </div>
 
                 </div>

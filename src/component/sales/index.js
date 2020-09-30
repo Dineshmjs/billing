@@ -116,7 +116,7 @@ function Sales() {
     return (
         <div>
             <div className="w3-container mt-3">
-                { !newSales && <button onClick={NewSales} className="btn w3-purple w3-right"> +New Sales</button>}
+                { !newSales && <button onClick={NewSales} className="btn w3-indigo w3-right"> +New Sales</button>}
             </div>
 
 
