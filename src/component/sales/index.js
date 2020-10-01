@@ -154,7 +154,7 @@ function Sales() {
 
 
 
-            <ViewSales reload={reloadView} Invoice={Invoice} />
+            <ViewSales reload={reloadView} Invoice={Invoice} Reload={Reload} />
 
         </div>
     )

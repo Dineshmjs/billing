@@ -15,7 +15,7 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
     }
 
     const submit = (values, submitProps) => {
-        alert("submit")
+        
         // console.log("values", values)
         http.post("product", values)
             .then(res => {

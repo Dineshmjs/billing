@@ -149,7 +149,7 @@ function Purcches() {
 
 
 
-            <ViewPurches reload={reloadView} />
+            <ViewPurches reload={reloadView} Reload={Reload} />
 
         </div>
     )
