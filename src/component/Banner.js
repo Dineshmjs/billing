@@ -5,7 +5,12 @@ import './index.css'
 function Banner() {    
     return(
         <div className="banner w3-teal">
-            <h2>Billing Software</h2>
+            <div className="softwarename">
+                <h2 className="w3-center">Billing Software</h2>
+            </div>
+            <div className="companyname ">
+                <h4 className="mr-3 mt-0 w3-right  w3-text-light">TechPort Softwares</h4>
+            </div>
         </div>
     );
 }

@@ -33,9 +33,9 @@ function Purches() {
                 </thead>
                 <tbody>
                 {
-                        data.map( data => {
-                            x += 1
+                        data.map( data => {                            
                             return data.items.map((items) => {
+                                x += 1
                                 return (
                                     <tr key={x}>
                                         <td>{x}</td>

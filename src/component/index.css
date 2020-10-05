@@ -3,11 +3,23 @@
 }
 .banner{
     display:flex;
+    flex-direction: row;
+    justify-content: space-between;
     flex:1;    
     align-items: center;
     justify-content: center;
     height: 90px;
 }
+
+.softwarename{    
+    flex:0.4;
+}
+
+.companyname{    
+    flex:0.7;
+}
+
+
 
 .body{
     display: flex;
@@ -26,13 +38,16 @@
 .card_padding{   
     align-items: center;
     width:90%;
-    height:100px;     
+    height:58px;     
     margin-top: 10px;
     display: flex;
     justify-content: center;
 }
-.card_padding:hover{
-    background-color: darkgrey;
+.card_padding:nth-child(odd):hover{
+    background-color: indigo;
+}
+.card_padding:nth-child(even):hover{
+    background-color: purple;
 }
 .card_padding:hover > h5{
     color: white;

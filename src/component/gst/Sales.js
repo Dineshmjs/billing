@@ -34,8 +34,9 @@ function Sales() {
                 <tbody>
                     {
                         data.map( data => {
-                            x += 1
+                            // x += 1
                             return data.items.map((items) => {
+                                x += 1
                                 return (
                                     <tr key={x}>
                                         <td>{x}</td>
