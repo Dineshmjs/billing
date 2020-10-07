@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { http } from '../../axios'
-import Filter from './Filter'
+import Filter from '../Filter'
 
 function Sales() {
     const [data, setData] = useState([])
