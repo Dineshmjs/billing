@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { http } from '../../axios'
+import Filter from './Filter'
 
 function Sales() {
     const [data, setData] = useState([])
+    const [filterData, setfilterData] = useState()
+
+    const FilterData = (filter) => {
+        setfilterData(filter)
+    }
     
 
     useEffect(() => {
@@ -18,11 +24,13 @@ function Sales() {
     var x = 0;
     return (
         <div>
+            <Filter FilterData={FilterData} data={data} />
             <table className="w3-table-all">
                 <thead>
                     <tr>
                         <td>S.No</td>
                         <td>Company</td>
+                        <td>Gst No</td>
                         <td>Date</td>
                         <td>Invoice</td>
                         <td>Amount</td>
@@ -31,29 +39,62 @@ function Sales() {
                         <td>Total Amount</td>
                     </tr>
                 </thead>
-                <tbody>
-                    {
-                        data.map( data => {
-                            // x += 1
-                            return data.items.map((items) => {
-                                x += 1
-                                return (
-                                    <tr key={x}>
-                                        <td>{x}</td>
-                                        <td>{data.address.name}</td>
-                                        <td>{data.invoicedate}</td>
-                                        <td>{data.invoiceno}</td>
-                                        <td>{items.total}</td>
-                                        <td>{items.gst}%</td>
-                                        <td>{items.gstTotal}</td>
-                                        <td>{items.grandTotal}</td>
-                                    </tr>
-                                )
+                {
+                    filterData ?
+                        (
+                            <tbody>
+                                {
+                                    filterData.map(data => {
+                                        return data.items.map((items) => {
+                                            x += 1
+                                            return (
+                                                <tr key={x}>
+                                                    <td>{x}</td>
+                                                    <td>{data.address.name}</td>
+                                                    <td>{data.address.gstin}</td>
+                                                    <td>{data.invoicedate}</td>
+                                                    <td>{data.invoiceno}</td>
+                                                    <td>{items.total}</td>
+                                                    <td>{items.gst}%</td>
+                                                    <td>{items.gstTotal}</td>
+                                                    <td>{items.grandTotal}</td>
+                                                </tr>
+                                            )
 
-                            })
-                        })
-                    }
-                </tbody>
+                                        })
+                                    })
+                                }
+                            </tbody>
+                        )
+                        :
+                        (
+                            <tbody>
+                                {
+                                    data.map(data => {
+                                        return data.items.map((items) => {
+                                            x += 1
+                                            return (
+                                                <tr key={x}>
+                                                    <td>{x}</td>
+                                                    <td>{data.address.name}</td>
+                                                    <td>{data.address.gstin}</td>
+                                                    <td>{data.invoicedate}</td>
+                                                    <td>{data.invoiceno}</td>
+                                                    <td>{items.total}</td>
+                                                    <td>{items.gst}%</td>
+                                                    <td>{items.gstTotal}</td>
+                                                    <td>{items.grandTotal}</td>
+                                                </tr>
+                                            )
+
+                                        })
+                                    })
+                                }
+                            </tbody>
+
+
+                        )
+                }
             </table>
         </div>
     )
