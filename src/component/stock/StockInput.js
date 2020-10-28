@@ -4,15 +4,9 @@ import * as yup from 'yup'
 import './index.css'
 import { http } from '../../axios'
 
-function StockInput({ Reload, insert, update, Update, formValues }) {
+function StockInput({ Reload, insert, update, Update, formValues, initialValues }) {
 
-    const initialValues = {
-        product: "",
-        hsnno: "",
-        mrp: "",
-        gst: "",
-        qt: 0
-    }
+    
 
     const submit = (values, submitProps) => {
         
@@ -26,6 +20,7 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
             .catch(err => {
                 console.log(err)
             })
+        submitProps.resetForm()    
         
     }
 
@@ -39,14 +34,14 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
     return (
         <div className="container mt-3">
             <Formik
-                initialValues={formValues || initialValues}
+                initialValues={formValues}
                 onSubmit={submit}
                 validationSchema={validationSchema}
                 enableReinitialize
             >
                 {
                     formikProps => (
-                        <Form>
+                        <Form autoComplete="off">
 
                             <div className="form-group">
                                 <Field name="product" type="text" className="form-control" placeholder="Enter Product Name" />

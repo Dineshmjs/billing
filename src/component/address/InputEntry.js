@@ -4,21 +4,8 @@ import * as yup from 'yup'
 import './index.css'
 import { http } from '../../axios'
 
-function InputEntry({ Reload, updateValues, Update, update, insert }) {
-
-    const initialValues = {
-        name: "",
-        gstin: "",
-        contact: "",
-        email: "",
-        address: "",
-        city: "",
-        state: "",
-        country: "",
-        pincode: ""
-    }
-
-    
+function InputEntry({ Reload, updateValues, Update, update, insert, initialValues }) {
+ 
 
 
 
@@ -55,7 +42,7 @@ function InputEntry({ Reload, updateValues, Update, update, insert }) {
     return (
         <div className="container mt-3">
             <Formik
-                initialValues={updateValues || initialValues}
+                initialValues={updateValues}
                 onSubmit={submit}
                 validationSchema={validationSchema}
                 enableReinitialize
@@ -66,7 +53,7 @@ function InputEntry({ Reload, updateValues, Update, update, insert }) {
                     
                     
                     return (
-                        <Form className="form">
+                        <Form className="form" autoComplete="off" >
                             <div className="form-group">
                                 <Field name="name" type="text" placeholder="Enter Name Of The Company" className="form-control" />
                                 <ErrorMessage name="name" />

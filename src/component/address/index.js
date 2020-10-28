@@ -4,6 +4,18 @@ import ViewAddress from './ViewAddress'
 import { http } from '../../axios'
 
 function Address() {
+    const initialValues = {
+        name: "",
+        gstin: "",
+        contact: "",
+        email: "",
+        address: "",
+        city: "",
+        state: "",
+        country: "",
+        pincode: ""
+    }
+
     const [reload, setReload] = useState(1)
 
     const Reload = (id) => {
@@ -12,7 +24,7 @@ function Address() {
     }
 
     const [update, setUpdate] = useState(false)
-    const [updateValues, setupdateValues] = useState({})
+    const [updateValues, setupdateValues] = useState(initialValues)
     const [insert, setInsert] = useState(true)
 
     const Update = (data, status, values) => {
@@ -57,6 +69,7 @@ function Address() {
                 Update={Update}
                 insert={insert}
                 update={update}
+                initialValues={initialValues}
             />
             <ViewAddress reload={reload} Update={Update} />
         </div>

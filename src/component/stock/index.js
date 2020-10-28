@@ -5,10 +5,19 @@ import { http } from '../../axios'
 
 
 function Stock() {
+
+    const initialValues = {
+        product: "",
+        hsnno: "",
+        mrp: "",
+        gst: "",
+        qt: 0
+    }
+
     const [reload, setReload] = useState(1)
     const [insert, setInsert] = useState(true)
     const [update, setUpdate] = useState(false)
-    const [formValues, setformValues] = useState({})
+    const [formValues, setformValues] = useState(initialValues)
 
     const Reload = (id) => {
         console.log(id)
@@ -51,7 +60,7 @@ function Stock() {
 
     return (
         <div>
-            <StockInput Reload={Reload} insert={insert} Update={Update} update={update} formValues={formValues} />
+            <StockInput Reload={Reload} insert={insert} Update={Update} update={update} formValues={formValues} initialValues={initialValues} />
             <ViewStock reload={reload} Reload={Reload} Update={Update} />
         </div>
     )
