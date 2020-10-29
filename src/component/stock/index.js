@@ -11,7 +11,8 @@ function Stock() {
         hsnno: "",
         mrp: "",
         gst: "",
-        qt: 0
+        qt: 0,
+        rate:""
     }
 
     const [reload, setReload] = useState(1)
@@ -49,6 +50,7 @@ function Stock() {
                 // console.log(res.data)
                 setReload(res.data)
                 setformValues(data)
+                console.log(data)
                 setUpdate(false)                
                 setInsert(true)
             })

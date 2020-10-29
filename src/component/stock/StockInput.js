@@ -28,7 +28,8 @@ function StockInput({ Reload, insert, update, Update, formValues, initialValues 
         product: yup.string().required("Enter Product Name"),
         hsnno: yup.number().required("Enter HSNNO"),
         mrp: yup.number().required("Enter MRP"),
-        gst: yup.number().required("Enter GST")
+        gst: yup.number().required("Enter GST"),
+        rate:yup.number().required("Enter Rate")
     })
 
     return (
@@ -56,6 +57,10 @@ function StockInput({ Reload, insert, update, Update, formValues, initialValues 
                                 <div className="form-group">
                                     <Field name="mrp" type="number" className="form-control" placeholder="Enter MRP" />
                                     <ErrorMessage name="mrp" />
+                                </div>
+                                <div className="form-group">
+                                    <Field name="rate" type="number" className="form-control" placeholder="Enter Rate" />
+                                    <ErrorMessage name="rate" />
                                 </div>
                                 <div className="form-group">
                                     <Field name="gst" type="number" className="form-control" placeholder="Enter GST" />
