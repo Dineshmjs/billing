@@ -121,7 +121,7 @@ function Purcches() {
                             <button onClick={ClosePurches} className="btn w3-red w3-right"> <CloseIcon /> Close</button>
                         </div>
                         <div className="w3-container mt-1">
-                            <SelectProduct SelectData={SelectData} />
+                            <SelectProduct SelectData={SelectData} reload={reloadView} />
                             <ProductEntry reloadMethod={Reload} selectData={selectData} SelectData={SelectData} />
                             <ViewItem reload={reloadView} Reload={Reload} />
 
@@ -139,7 +139,7 @@ function Purcches() {
                                     <button onClick={CancelBill} className="btn w3-red">Cancel Bill</button>
                                 </div>     
 
-                                <PrintButton address={address}  payment={payment} componentRef={componentRef} invoiceDate={MyDate(invoiceDate)} invoiceNo={invoiceNo} Reload={Reload} ClosePurches={ClosePurches} />
+                                <PrintButton address={address}  payment={payment} componentRef={componentRef} invoiceDate={MyDate(invoiceDate)} invoiceNo={invoiceNo} Reload={Reload} ClosePurches={ClosePurches} CancelBill={CancelBill} />
                             </div>
 
                         </div>
