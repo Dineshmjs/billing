@@ -29,15 +29,15 @@ function InputEntry({ Reload, updateValues, Update, update, insert, initialValue
 
     
     const validationSchema = yup.object({
-        name: yup.string().required("Please Enter Name"),
-        gstin: yup.string().required("Please Enter GSTIN"),
-        contact: yup.number().required("Please Enter Mobile No"),
-        email: yup.string().email("Invalid Email").required("Please Enter Email-Id "),
-        address: yup.string().required("Please Enter Address"),
-        city: yup.string().required("Please Enter City"),
-        state: yup.string().required("Please Enter State"),
-        country: yup.string().required("Please Enter Country"),
-        pincode: yup.number().required("Please Enter Pincode")
+        name: yup.string().required("Please Enter Name")
+        // gstin: yup.string().required("Please Enter GSTIN"),
+        // contact: yup.number().required("Please Enter Mobile No"),
+        // email: yup.string().email("Invalid Email").required("Please Enter Email-Id "),
+        // address: yup.string().required("Please Enter Address"),
+        // city: yup.string().required("Please Enter City"),
+        // state: yup.string().required("Please Enter State"),
+        // country: yup.string().required("Please Enter Country"),
+        // pincode: yup.number().required("Please Enter Pincode")
     })
     return (
         <div className="container mt-3">
