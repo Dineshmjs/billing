@@ -49,6 +49,7 @@ function Sales() {
             console.log(resData)
             // resData.rate = ""
             setselectData(resData)
+            
         }
 
     }
