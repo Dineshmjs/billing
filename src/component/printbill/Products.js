@@ -21,10 +21,10 @@ function Products({ reload }) {
 
     return (
         <div>
-            <table className="table">
+            <table className="w3-table ps-table">
                 <thead>
                     <tr>
-                        <td>S.No</td>
+                        <th>S.No</th>
                         <th>Product</th>
                         <th>HSNNO</th>
                         <th>MRP</th>
@@ -63,7 +63,20 @@ function Products({ reload }) {
                         })
                     }
 
-                    <tr>
+                    <tr className="ps-dummy-tr">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr className="ps-tr">
                         <td></td>
                         <td></td>
                         <td></td>

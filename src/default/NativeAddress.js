@@ -1,11 +1,11 @@
 export const NativeAddress = {
-    address: "12",
-    city: "CHENGALPATTU",
-    contact: 7339554260,
+    address: "No.6, K.K.Ponnurangam Salai, Om Shakthi Nagar, Valasaravakkam",
+    city: "Chennai",
+    contact: 9150443370,
     country: "India",
-    email: "dineshmj82@gmail.com",
-    gstin: "89HB9JDJJ/9DBID/JD9KF",
-    name: "Sri Padhmavathi Enterprices ",
-    pincode: 603312,
+    email: "sripadhmavathienterprises17@gmail.com",
+    gstin: "33JFPK2755A1ZM",
+    name: "Sri Padhmavathi Enterprises ",
+    pincode: 600087,
     state: "Tamil Nadu"
 }

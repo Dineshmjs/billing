@@ -1,88 +1,87 @@
-// import React from 'react'
-// import { toWords } from './NumberToWord';
-
+import React from 'react'
 import './index.css'
 import Address from './Address'
 import Invoice from './Invoice'
 import Products from './Products'
 import Items from './Items'
 
-// function ViewPrint({ address, payment, reload }) {
+// import { toWords } from './NumberToWord';
 
-//     const words = toWords(1)
-//     console.log(words)
+function ViewPrint({ faddress,taddress,payment, invoiceNo, invoiceDate, items, reload }) {
 
-//     return (
-//         <div>
-//             <p className="w3-center">TAX INVOICE</p>
+    // const words = toWords(1)
+    // console.log(words)
 
-//             <div className="viewprint">
-//                 <div className="top">
-//                     <div className="address">
-//                         <FromAddress />
-//                         <ToAddress address={address} />
-//                     </div>
+    return (
+        <div className="mt-2">
+            <p className="w3-center mt-3">TAX INVOICE</p>
 
-//                     <div className="invoice">
-//                         <Invoice payment={payment} />
-//                     </div>
-//                 </div>
-
-//                 <div className="products">
-//                     <Products reload={reload} />
-//                 </div>
-
-//                 <div>
-//                     {
-//                         words
-//                     }
-//                 </div>
-
-//             </div>
-
-//             <p className="w3-center">This is Computer Generated Invoice</p>
-//         </div>
-//     )
-// }
-
-// export default ViewPrint
-
-import React, { Component } from 'react'
-
-
-export class ViewPrint extends Component {    
-    render() {
-        return (
-            <div className="mt-2">
-                <p className="w3-center mt-3">TAX INVOICE</p>
-
-                <div className="viewprint">
-                    <div className="top">
-                        <div className="address">
-                            <Address address={this.props.fromaddress} />
-                            <div className="mt-2">Buyer</div>
-                            <Address address={this.props.toaddress} />
-                        </div>
-
-                        <div className="invoice">
-                            <Invoice payment={this.props.payment} invoiceNo={this.props.invoiceNo} invoiceDate={this.props.invoiceDate} />
-                        </div>
+            <div className="viewprint">
+                <div className="top">
+                    <div className="address">
+                        <Address address={faddress} />
+                        <div className="mt-2">Buyer</div>
+                        <Address address={taddress} />
                     </div>
 
-                    <div className="products">
-                        {
-                            this.props.items ? (<Items items = {this.props.items} />):(<Products reload={this.props.reload} />)
-                        }
-                        
+                    <div className="invoice">
+                        <Invoice payment={payment} invoiceNo={invoiceNo} invoiceDate={invoiceDate} />
                     </div>
+                </div>
+
+                <div className="products">
+                    {
+                       items ? (<Items items={items} />) : (<Products reload={reload} />)
+                    }
 
                 </div>
 
-                <p className="w3-center">This is Computer Generated Invoice</p>
             </div>
-        )
-    }
+
+            <p className="w3-center">This is Computer Generated Invoice</p>
+        </div>
+    )
+
 }
 
 export default ViewPrint
+
+// import React, { Component } from 'react'
+
+
+// export class ViewPrint extends Component {    
+//     render() {
+//         return (
+//             <div className="mt-2">
+//                 <p className="w3-center mt-3">TAX INVOICE</p>
+
+//                 <div className="viewprint">
+//                     <div className="top">
+//                         <div className="address">
+//                             <Address address={this.props.fromaddress} />
+//                             <div className="mt-2">Buyer</div>
+//                             <Address address={this.props.toaddress} />
+//                         </div>
+
+//                         <div className="invoice">
+//                             <Invoice payment={this.props.payment} invoiceNo={this.props.invoiceNo} invoiceDate={this.props.invoiceDate} />
+//                         </div>
+//                     </div>
+
+//                     <div className="products">
+//                         {
+//                             this.props.items ? (<Items items = {this.props.items} />):(<Products reload={this.props.reload} />)
+//                         }
+
+//                     </div>
+
+//                 </div>
+
+//                 <p className="w3-center">This is Computer Generated Invoice</p>
+//             </div>
+//         )
+//     }
+// }
+
+// export default ViewPrint
 

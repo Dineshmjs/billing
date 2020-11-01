@@ -34,9 +34,9 @@
     margin-bottom: 0px;
     margin-left: 10px;
 }
-.toaddress{
+/* .toaddress{
     
-}
+} */
 .toaddress > p,h6{
     margin-bottom: 0px;
     margin-left: 10px;
@@ -51,4 +51,22 @@
 
 .hr{
     border:1px solid black;
+}
+
+.ps-table th{
+    border-left: 1px solid black; 
+}
+.ps-table td{
+    border-left: 1px solid black; 
+}
+.ps-table th{
+    border-bottom: 1px solid black; 
+}
+
+.ps-tr td{   
+    border-top: 1px solid black; 
+    vertical-align: bottom;
+}
+.ps-dummy-tr{
+    height: 250px;
 }

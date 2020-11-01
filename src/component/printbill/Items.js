@@ -49,7 +49,7 @@ function Products({ items }) {
                         })
                     }
 
-                    <tr>
+                    <tr className="is-tr">
                         <td></td>
                         <td></td>
                         <td></td>

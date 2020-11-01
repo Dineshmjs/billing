@@ -11,7 +11,7 @@ import CloseIcon from '@material-ui/icons/Close'
 
 import PrintButton from './PrintButton'
 
-import ViewPrint from '../printbill/ViewPrint'
+import PrintBill from '../printbill'
 import { http } from '../../axios'
 import { NativeAddress } from '../../default/NativeAddress'
 
@@ -137,8 +137,8 @@ function Sales() {
                             <SelectPayment Payment={Payment} />
                             
 
-                            <ViewPrint fromaddress={NativeAddress} toaddress={address} ref={componentRef} reload={reloadView} address={address} payment={payment} invoiceNo={invoiceNo} invoiceDate={MyDate(Date.now())} />
-
+                            <PrintBill fromaddress={NativeAddress} toaddress={address} ref={componentRef} reload={reloadView} address={address} payment={payment} invoiceNo={invoiceNo} invoiceDate={MyDate(Date.now())} />
+                            
 
                             <div className="buttons">
                                 
